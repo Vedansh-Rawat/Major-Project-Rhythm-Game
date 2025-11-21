@@ -1,1 +1,1 @@
-# Major-Project-Rhythm-Game
+# Rhythm Game in C Terminal!

@@ -2,13 +2,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "../include/config.h"
+#include "../include/menu.h"
 #include <conio.h>
 
 char grid[ROWS][COLS];
-int noteCount = 0;
-int score = 0;
 Note notes[MAX_NOTES];
 char beats[MAX_BEATS][5];
+
+int noteCount = 0;
+int score = 0;
 int totalBeats = 0;
 int currentBeat = 0;
 int frameCounter = 0;
@@ -24,10 +26,33 @@ void loadSong(const char* filename);
 void updateNotes();
 
 int main() {
-    loadSong("../songs/testSong.txt");
+    int choice;
+    char selectedSong[256] = "../songs/easy.txt";
     printf("\033[2J");
-    while (1) {
 
+    // Main Menu Loop
+    while(1){
+        choice == showMainMenu();
+
+        if (choice == 1){
+            break; // Default difficulty set to Easy
+        }
+        else if (choice == 2){
+            if (selectSong(selectedSong)){
+                break;
+            }
+        }
+        else if (choice == 3){
+            showInstrucions();
+        }
+        else if (choice == 4){
+            return 0;
+        }
+    }
+
+    
+    // Main Game Loop
+    while (1) {
     if (frameCounter % beatInterval == 0) {
         if (currentBeat < totalBeats) {
 

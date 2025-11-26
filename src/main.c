@@ -1,10 +1,11 @@
+// Header Files!
 #include <windows.h>
 #include <stdio.h>
 #include <stdlib.h>
-#include "../include/config.h"
-#include "../include/menu.h"
 #include <conio.h>
 #include <string.h>
+#include "../include/config.h"
+#include "../include/menu.h"
 
 char grid[ROWS][COLS];
 Note notes[MAX_NOTES];
@@ -19,7 +20,6 @@ int beatInterval = 1;
 char feedbackText[20] = "";
 int feedbackTimer = 0;
 int combo = 0;
-
 
 void clearGrid();
 void drawGrid();
@@ -104,6 +104,21 @@ int main() {
     drawGrid();
     updateNotes();
 
+    // Ending Check
+    int activeNotes = 0;
+    for (int i = 0; i < noteCount; i++){
+        if (notes[i].active){
+            activeNotes = 1;
+            break;
+        }
+    }
+
+    if (currentBeat >= totalBeats && !activeNotes){
+        break;
+    }
+
+
+
     Sleep(200);
 
     char keyPressed = 0;
@@ -143,5 +158,12 @@ int main() {
         }
     }   
 
-    return 0;
+    // Result Screen
+    printf("\033[2J\033[H");
+    printf("============= Level Complete =============\n");
+    printf("Final Score: %d\n", score);
+    printf("===== Press Enter to go back to menu =====\n");
+    printf("==========================================\n");
+    getchar();
+    main();
 }

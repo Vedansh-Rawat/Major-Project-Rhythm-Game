@@ -4,6 +4,7 @@
 #include "../include/config.h"
 #include "../include/menu.h"
 #include <conio.h>
+#include <string.h>
 
 char grid[ROWS][COLS];
 Note notes[MAX_NOTES];
@@ -32,7 +33,7 @@ int main() {
 
     // Main Menu Loop
     while(1){
-        choice == showMainMenu();
+        choice = showMainMenu();
 
         if (choice == 1){
             break; // Default difficulty set to Easy
@@ -43,14 +44,24 @@ int main() {
             }
         }
         else if (choice == 3){
-            showInstrucions();
+            showInstructions();
         }
         else if (choice == 4){
             return 0;
         }
     }
 
-    
+    noteCount = 0;
+    score = 0;
+    combo = 0;
+    feedbackText[0] = '\0';
+    feedbackTimer = 0;
+    currentBeat = 0;
+    frameCounter = 0;
+
+    loadSong(selectedSong);
+    printf("\033[2J\033[H");
+
     // Main Game Loop
     while (1) {
     if (frameCounter % beatInterval == 0) {
@@ -66,7 +77,6 @@ int main() {
                     noteCount++;
                 }
             }
-
             currentBeat++;
         }
     }
@@ -131,8 +141,7 @@ int main() {
                 }
             }
         }
-    }
-
+    }   
 
     return 0;
 }

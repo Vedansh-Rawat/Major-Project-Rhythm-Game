@@ -2,7 +2,7 @@
 #define MENU_H
 
 int showMainMenu();
-void showInstrucions();
+void showInstructions();
 int selectSong(char *outFilename);
 
 #endif

@@ -16,10 +16,10 @@ Notes fall down the screen in four lanes (A, S, D, F), and the player must press
 
 Open terminal inside src/ folder:
 
-`` gcc main.c clearGrid.c drawGrid.c loadSong.c updateNotes.c menu.c -I ../include -o game ``
+`` gcc main.c clearGrid.c drawGrid.c loadSong.c updateNotes.c menu.c -I ../include -o main ``
 
 ### Run
-`` ./game ``
+`` ./main ``
 
 # Built by
 Vedansh Rawat

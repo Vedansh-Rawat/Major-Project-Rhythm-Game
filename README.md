@@ -22,6 +22,6 @@ Open terminal inside src/ folder:
 `` ./main ``
 
 # Built by
-Vedansh Rawat
-B.Tech CSE Batch 48
-SAP - 590027560
+Vedansh Rawat  
+B.Tech CSE Batch 48  
+SAP - 590027560  

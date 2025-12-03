@@ -20,3 +20,8 @@ Open terminal inside src/ folder:
 
 ### Run
 `` ./game ``
+
+# Built by
+Vedansh Rawat
+B.Tech CSE Batch 48
+SAP - 590027560
